@@ -1,7 +1,7 @@
 // Node server which will handle socket io connections
 const io = require('socket.io')(8000, {
     cors: {
-      origin: '*',
+        origin: '*',
     }
 });
 
@@ -17,7 +17,7 @@ io.on('connection', socket => {
 
     socket.on('send', message => {
         //broadcast message to other people
-        socket.broadcast.emit('receive', {message: message, name: users[socket.id]})
+        socket.broadcast.emit('receive', { message: message, name: users[socket.id] })
     })
 
     socket.on('disconnect', message => {
